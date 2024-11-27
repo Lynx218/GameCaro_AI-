@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from Constant import SIZE, CELL_WIDTH, BACKGROUND_COLOR, CELL_COLOR, LINE_COLOR, INFO_MESSAGE, INTRODUCE_MESSAGE, AI_VALUE, USER_VALUE
-from ChessBoard.State import State
+from Board.State import State
 from CaroAI.AI import CaroAI
 from PIL import Image, ImageTk
 
