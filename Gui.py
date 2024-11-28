@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from Constant import SIZE, CELL_WIDTH, BACKGROUND_COLOR, CELL_COLOR, LINE_COLOR, INFO_MESSAGE, RULE_MESSAGE, AI_VALUE, USER_VALUE
-from Board.State import State
+from ChessBoard.State import State
 from CaroAI.AI import CaroAI
 from PIL import Image, ImageTk
 
@@ -50,7 +50,7 @@ class GameGUI:
             self.root, bg="lightgray", padx=10, pady=10)
         self.control_frame.grid(row=0, column=1, sticky="ns")
 
-         # Hiển thị trạng thái
+        # Hiển thị trạng thái
         self.status_label = tk.Label(
             self.control_frame,
             text="Welcome to Cờ Caro!",
@@ -59,12 +59,13 @@ class GameGUI:
             justify="center",
         )
         self.status_label.pack(pady=20)
-        
+
         # Hiển thị ảnh
         image = Image.open("image.jpg")
         image = image.resize((150, 150), Image.Resampling.LANCZOS)
         self.photo = ImageTk.PhotoImage(image)
-        self.image_label = tk.Label(self.control_frame, image=self.photo, bg="lightgray")
+        self.image_label = tk.Label(
+            self.control_frame, image=self.photo, bg="lightgray")
         self.image_label.pack(pady=20)
 
         # Nút "New Game"
@@ -73,7 +74,7 @@ class GameGUI:
         )
         self.new_game_button.pack(pady=10)
 
-        # Nút "Info"
+        # Nút "Infomation"
         self.info_button = tk.Button(
             self.control_frame, text="Infomation", command=self.show_info, font=("Arial", 12), width=15
         )
@@ -131,9 +132,10 @@ class GameGUI:
             self.state.update(x, y, USER_VALUE)
             self.ai.root.update(x, y, USER_VALUE)
             self.draw_board()
-            
+
             if self.state.check_winner(1):
                 self.ai.root = State()
+                self.draw_winning_line()
                 messagebox.showinfo("Kết quả", "Bạn đã thắng!")
                 self.confirm_new_game()
                 return
@@ -148,7 +150,7 @@ class GameGUI:
 
     def ai_turn(self):
         """Lượt đi của AI."""
-        
+
         self.ai.next_step()
         x, y = self.ai.get_next_x(), self.ai.get_next_y()
 
@@ -159,12 +161,31 @@ class GameGUI:
 
             if self.state.check_winner(2):
                 self.ai.root = State()
+                self.draw_winning_line()
                 messagebox.showinfo("Kết quả", "AI đã thắng!")
                 self.confirm_new_game()
             elif self.state.is_over():
                 self.ai.root = State()
                 messagebox.showinfo("Kết quả", "Hòa cờ!")
                 self.confirm_new_game()
+
+    def draw_winning_line(self):
+        """Vẽ đưong thẳng qua 5 ô thắng."""
+        if self.state.winning_line:
+            x1, y1 = self.state.winning_line[0]
+            x2, y2 = self.state.winning_line[-1]
+            
+            # Chuyển đổi tọa độ ô sang tọa độ pixel
+            start_pixel_x = y1 * self.cell_size + self.cell_size // 2
+            start_pixel_y = x1 * self.cell_size + self.cell_size // 2
+            end_pixel_x = y2 * self.cell_size + self.cell_size // 2
+            end_pixel_y = x2 * self.cell_size + self.cell_size // 2
+
+            # Vẽ đường thắng (màu xanh hoặc màu tùy chỉnh)
+            self.canvas.create_line(
+                start_pixel_x, start_pixel_y, end_pixel_x, end_pixel_y,
+                fill="green", width=3
+            )
 
     def confirm_new_game(self):
         """Hiển thị xác nhận trước khi bắt đầu game mới."""

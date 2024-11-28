@@ -1,8 +1,8 @@
 import re
 import heapq
 from Constant import SIZE, AI_VALUE, USER_VALUE, MAX_NUM_OF_HIGHEST_CELL_LIST
-from Board.Eval import EvalCell
-from Board.Cell import Cell
+from ChessBoard.Eval import EvalCell
+from ChessBoard.Cell import Cell
 
 
 class Heuristic:

@@ -1,6 +1,6 @@
 import random
 from .Heuristic import Heuristic
-from Board.State import State
+from ChessBoard.State import State
 from Constant import SIZE, AI_VALUE, MAX_DEPTH, USER_VALUE
 
 
