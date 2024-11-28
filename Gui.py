@@ -75,7 +75,7 @@ class GameGUI:
 
         # Nút "Info"
         self.info_button = tk.Button(
-            self.control_frame, text="Info", command=self.show_info, font=("Arial", 12), width=15
+            self.control_frame, text="Infomation", command=self.show_info, font=("Arial", 12), width=15
         )
         self.info_button.pack(pady=10)
 
