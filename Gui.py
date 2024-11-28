@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-from Constant import SIZE, CELL_WIDTH, BACKGROUND_COLOR, CELL_COLOR, LINE_COLOR, INFO_MESSAGE, INTRODUCE_MESSAGE, AI_VALUE, USER_VALUE
+from Constant import SIZE, CELL_WIDTH, BACKGROUND_COLOR, CELL_COLOR, LINE_COLOR, INFO_MESSAGE, RULE_MESSAGE, AI_VALUE, USER_VALUE
 from Board.State import State
 from CaroAI.AI import CaroAI
 from PIL import Image, ImageTk
@@ -79,9 +79,9 @@ class GameGUI:
         )
         self.info_button.pack(pady=10)
 
-        # Nút "Introduce"
+        # Nút "Rule"
         self.introduce_button = tk.Button(
-            self.control_frame, text="Introduce", command=self.show_introduce, font=("Arial", 12), width=15
+            self.control_frame, text="Rule", command=self.show_introduce, font=("Arial", 12), width=15
         )
         self.introduce_button.pack(pady=10)
 
@@ -182,7 +182,7 @@ class GameGUI:
 
     def show_introduce(self):
         """Hiển thị luật chơi."""
-        messagebox.showinfo("Luật chơi", INTRODUCE_MESSAGE)
+        messagebox.showinfo("Luật chơi", RULE_MESSAGE)
 
     def on_close(self):
         """Hiển thị xác nhận trước khi thoát game."""

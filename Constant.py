@@ -1,21 +1,17 @@
 INFO_MESSAGE = """
 Trường Đại Học Công Nghệ - Đại học Quốc Gia Hà Nội.
+Thành viên nhóm: 
+    Phạm Khánh Linh 21020080
+    Bùi Đức Luân 21020775
+    Tống Việt Hùng 22026589
+    Phạm Đức Toàn 22026511
 Nội dung:
- Game cờ caro sử dụng thuật toán cắt tỉa alpha beta, bài tập nhóm môn nhập môn trí tuệ nhân tạo!
+    Game cờ caro sử dụng thuật toán cắt tỉa alpha beta, bài tập nhóm môn nhập môn trí tuệ nhân tạo!
 """
 
-INTRODUCE_MESSAGE = """
-Nguồn Gốc và Luật Chơi Cờ Caro
-
-Cờ caro – một trò chơi rất phổ biến ở Việt Nam và được rất nhiều người yêu thích, 
-đặc biệt là các bạn đã từng trải qua thời học sinh. Nói đến cờ caro, 
-chắc hẳn không một bạn học sinh nào là không biết. Chỉ cần một mảnh giấy kẻ ô, hai cây bút, 
-bạn có thể tự tổ chức một cuộc thi cờ đúng nghĩa.
-
-1. Lịch sử cờ caro
-Cờ caro bắt đầu với cái tên Wutzu bên Trung Quốc và biến danh thành Gomoku ở Nhật Bản. 
-Ở Việt Nam, cờ này thường chơi trên giấy tập học sinh, dùng bút đánh dấu hình tròn (O) và chữ thập (X) để đại diện cho 2 quân cờ, 
-bên nào có đường 5 quân liền nhau trên một hàng, một cột hoặc một đường chéo là thắng.
+RULE_MESSAGE = """
+Hai người chơi thay phiên nhau đánh dấu các ô trên bàn cờ bằng ký hiệu "X" hoặc "O", mục tiêu tạo ra một dãy 5 quân liên tiếp theo chiều ngang, dọc hoặc chéo. 
+Trò chơi kết thúc khi một bên có 5 ô liên tiếp trước hoặc bàn cờ đầy mà không có người thắng.
 """
 
 SIZE = 19
